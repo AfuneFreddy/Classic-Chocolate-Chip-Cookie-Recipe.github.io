@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Chocolate Chip Cookies Recipe</title>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #f5a623;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0;
+        }
+        h2 {
+            color: #f5a623;
+        }
+        ul, ol {
+            line-height: 1.6;
+        }
+        footer {
+            text-align: center;
+            background-color: #f5a623;
+            color: white;
+            padding: 10px 0;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Classic Chocolate Chip Cookies</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Recipe Image -->
+        <img src="cookie_image.jpg" alt="A delicious plate of chocolate chip cookies">
+
+        <!-- Toggle Button for Ingredients -->
+        <button id="toggleIngredients">Show Ingredients</button>
+        <section id="ingredients" class="hidden">
+            <h2>Ingredients</h2>
+            <ul>
+                <li>2 1/4 cups all-purpose flour</li>
+                <li>1/2 teaspoon baking soda</li>
+                <li>1 cup unsalted butter</li>
+                <li>1/2 cup granulated sugar</li>
+                <li>1 cup packed brown sugar</li>
+                <li>1 teaspoon salt</li>
+                <li>2 teaspoons vanilla extract</li>
+                <li>2 large eggs</li>
+                <li>2 cups semisweet chocolate chips</li>
+            </ul>
+        </section>
+
+        <!-- Instructions with Toggle Feature for Each Step -->
+        <h2>Instructions</h2>
+        <ol>
+            <li>
+                <button class="toggleStep">Show Step</button>
+                <span class="hidden">Preheat oven to 350°F (175°C). Grease and flour baking pans.</span>
+            </li>
+            <li>
+                <button class="toggleStep">Show Step</button>
+                <span class="hidden">In a large bowl, whisk together flour, baking soda, and salt.</span>
+            </li>
+            <li>
+                <button class="toggleStep">Show Step</button>
+                <span class="hidden">Beat butter, sugar, and vanilla extract until smooth. Add eggs one at a time.</span>
+            </li>
+            <li>
+                <button class="toggleStep">Show Step</button>
+                <span class="hidden">Gradually add dry ingredients and chocolate chips.</span>
+            </li>
+            <li>
+                <button class="toggleStep">Show Step</button>
+                <span class="hidden">Bake for 10-12 minutes or until golden brown.</span>
+            </li>
+        </ol>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact us: myrecipe@example.com</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle Ingredients Visibility
+        document.getElementById("toggleIngredients").addEventListener("click", function() {
+            var ingredientsSection = document.getElementById("ingredients");
+            if (ingredientsSection.classList.contains("hidden")) {
+                ingredientsSection.classList.remove("hidden");
+                this.textContent = "Hide Ingredients";
+            } else {
+                ingredientsSection.classList.add("hidden");
+                this.textContent = "Show Ingredients";
+            }
+        });
+
+        // Toggle Each Step in Instructions
+        var toggleButtons = document.querySelectorAll(".toggleStep");
+        toggleButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                var step = this.nextElementSibling;
+                if (step.classList.contains("hidden")) {
+                    step.classList.remove("hidden");
+                    this.textContent = "Hide Step";
+                } else {
+                    step.classList.add("hidden");
+                    this.textContent = "Show Step";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
